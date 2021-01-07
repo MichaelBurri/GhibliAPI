@@ -1,13 +1,14 @@
 function loadDoc() {
+    document.getElementById("results").innerHTML=null;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var response=JSON.parse(this.responseText);
             var filmName=document.getElementById('peli').value;
             for (let i = 0; i < response.length; i++) {
-                        if (response[i].title==filmName) {
-                            maquetar(response[i]);                       
-                        }                         
+                    if (regexTitle(response[i].title,filmName)) {
+                        maquetar(response[i]);                        
+                    }                        
                 } 
         }
     };    
@@ -16,7 +17,7 @@ function loadDoc() {
 }
 
 function maquetar(response){
-    document.getElementById("results").innerHTML=null;
+    
     let filmDiv=document.createElement('div');
     let filmImage=document.createElement('img');
     filmImage.src='https://i.pinimg.com/originals/e4/c1/57/e4c157372efb0c3778234779a45e6c66.jpg';
@@ -83,4 +84,10 @@ function maquetarCard(response){
     document.getElementById('bCerrar').addEventListener('click',(e)=>{
         e.target.parentNode.parentNode.style.display='none';        
     });  
+}
+
+function regexTitle(title,filmName){
+    let str=title;
+    let regex=new RegExp(filmName);
+    return regex.test(str);
 }
