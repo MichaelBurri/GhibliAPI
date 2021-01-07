@@ -85,9 +85,15 @@ function maquetarCard(response){
         e.target.parentNode.parentNode.style.display='none';        
     });  
 }
+document.getElementById('form').addEventListener('keypress',(e)=>{
+    if (e.keyCode==13) {
+        e.preventDefault();
+        loadDoc();
+    }
+})
 
 function regexTitle(title,filmName){
-    let str=title;
-    let regex=new RegExp(filmName);
+    let str=title.toLowerCase();
+    let regex=new RegExp(filmName.toLowerCase());
     return regex.test(str);
 }

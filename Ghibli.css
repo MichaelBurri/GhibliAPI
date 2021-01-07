@@ -18,20 +18,25 @@ body{
     flex-wrap: wrap;
 }
 #results>div{
+    width: 15vw;
+    height: 20vh;
     padding: 10px;
     margin-left: 1vw;
     margin-top: 1vh;
     color:rgb(134, 43, 10);
     background-color: lightskyblue;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     opacity: 0.9;
-    border: 2px solid yellowgreen;
+    border: 2px solid silver;
 }
 
 
 #div-modal{
     z-index: 1000;
-    width: 50 vw;
+    width: 60 vw;
     position: absolute;
     opacity: 0.9;
     background-color:lightblue;
