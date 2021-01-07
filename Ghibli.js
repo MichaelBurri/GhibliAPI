@@ -76,11 +76,6 @@ function maquetarCard(response){
     divModal.append(filmImage,list);
     divModal.innerHTML+='<hr>';
     divModal.append(description);
-    
-    /* datos;
-    hr;
-    description; */
-
     document.getElementById('bCerrar').addEventListener('click',(e)=>{
         e.target.parentNode.parentNode.style.display='none';        
     });  
